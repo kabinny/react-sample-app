@@ -32,21 +32,14 @@ class App extends Component {
     }
     return (
       <div className="App">
-        {/* <Subject 
+        <Subject 
           title={this.state.subject.title} 
-          sub={this.state.subject.sub}></Subject> */}
-        <header> 
-          <h1><a href="/" onClick={function(e){
-            console.log(e);
-            e.preventDefault(); // a tag의 기본 동작 막는다.
-            // this.state.mode = 'welcome'; 
-            // 윗 줄은 문제가 있다. this가 자신을 가리키도록 끝에 .bind(this)를 추가한다.(그러지 않으면 undefind) 그리고 state변경을 리액트가 알 수 있게 setState를 사용한다. 
-            this.setState({
-              mode: 'welcome'
-            });
-          }.bind(this)}>{this.state.subject.title}</a></h1>
-          {this.state.subject.sub}
-        </header>
+          sub={this.state.subject.sub}
+          onChangePage={function(){
+            this.setState({mode: 'welcome'});
+          }.bind(this)}
+          >
+        </Subject>
         <TOC data={this.state.contents}></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
