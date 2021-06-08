@@ -43,7 +43,10 @@ class App extends Component {
       }
       _article = <ReadContent title={_title} desc={_desc}></ReadContent>;
     } else if(this.state.mode === 'create') {
-      _article = <CreateContent title={_title} desc={_desc}></CreateContent>;
+      _article = <CreateContent onSubmit={function(_title, _desc){
+        // setState로 새로운 content값 추가 add content to this.state.contents
+        console.log(_title, _desc);
+      }.bind(this)}></CreateContent>;
     }
     return (
       <div className="App">
