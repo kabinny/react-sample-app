@@ -53,6 +53,11 @@ class App extends Component {
         var _contents = this.state.contents.concat(
           {id: this.max_content_id, title: _title, desc: _desc}
         ) // push는 원본 배열을 수정하기 때문에 나중을 위해 concat를 이용하자
+
+        // // push를 쓰려면 배열을 복제해서 쓰자!
+        // var newContents = Array.from(this.state.contents);
+        // newContents.push({id: this.max_content_id, title: _title, desc: _desc});
+
         this.setState({
           contents: _contents
         })
